@@ -1,0 +1,86 @@
+@import url("/estilos/global.css");
+
+.principal{
+    height: 100vh;
+    display: grid;
+}
+
+.contenido{
+    display: grid;
+    grid-template-areas: "izquierda derecha";
+    grid-template-columns: 8vw 92vw;
+}
+
+.contenido-izquierda{
+    display: flex;
+    grid-area: izquierda;
+    justify-content: center;
+}
+
+.contenido-derecha{
+    display: grid;
+    grid-area: derecha;
+}
+
+.menu{
+    display: flex;
+    margin: auto 0;
+    height: 90vh;
+    width: 5vw;
+    background-color: #191919;
+    border: 1px solid black;
+    border-radius: 0.7vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 30px;
+}
+
+.iconos{
+    display: grid;
+}
+
+.icono-menu, .icono-menu-2, .icono-menu-3, .icono-menu-4{
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+ul{
+    list-style: none;
+}
+
+.fa-solid{
+    cursor: pointer;
+    color: white;
+}
+
+.derecha-grid{
+    display: grid;
+    grid-template-areas: "botones tabla";
+    grid-template-rows: 50vh;
+    grid-template-columns: 17vw 75vw;
+    align-content: center;
+}
+
+.botones-contenido-derecha{
+    display: flex;
+    grid-area: botones;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+button{
+    width: 10vw;
+    height: 4vh;
+}
+
+.tabla{
+    display: grid;
+    grid-area: tabla;
+}
+
+table{
+    width: 100%;
+ }
