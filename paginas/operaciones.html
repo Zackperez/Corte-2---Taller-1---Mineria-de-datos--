@@ -11,7 +11,7 @@
     <!--Estilos propios-->
     <link rel="stylesheet" href="../estilos/operaciones.css">
     <link rel="shortcut icon" href="../imagenes/pestaña-icono.png" type="image/x-icon">
-    <title>Document</title>
+    <title>CRUD</title>
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                 <div class="derecha-grid">
 
                     <div class="botones-contenido-derecha">
-                        <button class="boton-1">Insertar</button>
+                        <button id="myBtn" class="boton-1">Insertar datos...</button>
                         <button class="boton-2">Actualizar</button>
                         <button class="boton-3">Eliminar</button>
                         <button class="boton-4">Consultar</button>
@@ -86,6 +86,67 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="botones-contenido-abajo">
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+                                    <h2>Insertar datos a la base de datos</h2>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ducimus autem eum
+                                        consequuntur repellendus officia accusantium alias amet modi. Neque nobis et,
+                                        error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="campo">
+                                        <div class="campo__titulo">
+                                            <label for="name">Modelo</label>
+                                        </div>
+                                        <div class="campo__texto">
+                                            <input type="text" id="name" name="name" required minlength="5" maxlength="15">
+                                        </div>
+                                    </div>
+                                    <div class="campo">
+                                        <div class="campo__titulo">
+                                            <label for="name">Año</label>
+                                        </div>
+                                        <div class="campo__texto">
+                                            <input type="text" id="name" name="name" required minlength="5" maxlength="15">
+                                        </div>
+                                    </div>
+                                    <div class="campo">
+                                        <div class="campo__titulo">
+                                            <label for="name">Kilometraje</label>
+                                        </div>
+                                        <div class="campo__texto">
+                                            <input type="text" id="name" name="name" required minlength="5" maxlength="15">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="campo">
+                                        <div class="campo__titulo">
+                                            <label for="name">Precio</label>
+                                        </div>
+                                        <div class="campo__texto">
+                                            <input type="text" id="name" name="name" required minlength="5" maxlength="15">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button class="boton-modal">Insertar</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
@@ -94,7 +155,7 @@
     </section>
 
     <script src="https://kit.fontawesome.com/1a5bcd4a97.js" crossorigin="anonymous"></script>
-
+    <script src="../javascript/operaciones-js.js"></script>
 </body>
 
 </html>

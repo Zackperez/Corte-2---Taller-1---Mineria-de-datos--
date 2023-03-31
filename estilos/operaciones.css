@@ -20,12 +20,13 @@
 .contenido-derecha{
     display: grid;
     grid-area: derecha;
+    align-items: center;
 }
 
 .menu{
     display: flex;
     margin: auto 0;
-    height: 90vh;
+    height: 95vh;
     width: 5vw;
     background-color: #191919;
     border: 1px solid black;
@@ -56,10 +57,14 @@ ul{
 
 .derecha-grid{
     display: grid;
-    grid-template-areas: "botones tabla";
-    grid-template-rows: 50vh;
+    grid-template-areas:
+    "campos campos"
+    "botones tabla";
+    grid-template-rows: 10vh 50vh;
     grid-template-columns: 17vw 75vw;
     align-content: center;
+    background-color: antiquewhite;
+    width: 90vw;
 }
 
 .botones-contenido-derecha{
@@ -83,4 +88,78 @@ button{
 
 table{
     width: 100%;
- }
+}
+
+.botones-contenido-abajo{
+    grid-area: campos;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    display: grid;
+    height: 50vh;
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+
+.modal-header{
+    text-align: center;
+}
+
+  .modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .modal-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .campo{
+    padding-right: 2vw;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  input[type=text] {
+    width: 20vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
