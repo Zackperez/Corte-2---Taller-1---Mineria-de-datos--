@@ -23,3 +23,18 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function mostrar_respuesta() {
+  id_usuario = document.getElementById("id_usuario").value;
+  let resultados = document.getElementById("resultados_finales");
+  let parrafo_resultados = document.createElement('p');
+  axios.get('http://localhost:4000/respuesta_sbr/' + id_usuario)
+      .then(function (response) {
+          console.log(response);
+          parrafo_resultados.innerHTML = response.data[0].Diagnostico_final;
+          resultados.appendChild(parrafo_resultados);
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
+}

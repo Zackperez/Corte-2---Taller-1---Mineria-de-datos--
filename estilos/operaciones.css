@@ -1,165 +1,225 @@
 @import url("global.css");
 
-.principal{
-    height: 100vh;
-    display: grid;
+.principal {
+  height: 100vh;
+  display: grid;
 }
 
-.contenido{
-    display: grid;
-    grid-template-areas: "izquierda derecha";
-    grid-template-columns: 8vw 92vw;
+.contenido {
+  display: grid;
+  grid-template-areas: "izquierda derecha";
+  grid-template-columns: 8vw 92vw;
 }
 
-.contenido-izquierda{
-    display: flex;
-    grid-area: izquierda;
-    justify-content: center;
+.contenido-izquierda {
+  display: flex;
+  grid-area: izquierda;
+  justify-content: center;
 }
 
-.contenido-derecha{
-    display: grid;
-    grid-area: derecha;
-    align-items: center;
+.contenido-derecha {
+  display: grid;
+  grid-area: derecha;
+  align-items: center;
 }
 
-.menu{
-    display: flex;
-    margin: auto 0;
-    height: 95vh;
-    width: 5vw;
-    background-color: #191919;
-    border: 1px solid black;
-    border-radius: 0.7vw;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 30px;
+.menu {
+  display: flex;
+  margin: auto 0;
+  height: 95vh;
+  width: 5vw;
+  background-color: #191919;
+  border: 1px solid black;
+  border-radius: 0.7vw;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 30px;
 }
 
-.iconos{
-    display: grid;
+.iconos {
+  display: grid;
 }
 
-.icono-menu, .icono-menu-2, .icono-menu-3, .icono-menu-4{
-    margin-bottom: 2vh;
-    margin-top: 2vh;
+.icono-menu,
+.icono-menu-2,
+.icono-menu-3,
+.icono-menu-4 {
+  margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
-.fa-solid{
-    cursor: pointer;
-    color: white;
+.icono-menu .fa-solid {
+  cursor: pointer;
+  color: white;
 }
 
-.derecha-grid{
-    display: grid;
-    grid-template-areas:
-    "campos campos"
-    "botones tabla";
-    grid-template-rows: 10vh 50vh;
-    grid-template-columns: 17vw 75vw;
-    align-content: center;
-    background-color: antiquewhite;
-    width: 90vw;
+.icono-menu-2 .fa-solid {
+  cursor: pointer;
+  color: white;
 }
 
-.botones-contenido-derecha{
-    display: flex;
-    grid-area: botones;
-    justify-content: space-evenly;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+.icono-menu-3 .fa-solid {
+  cursor: pointer;
+  color: white;
 }
 
-button{
-    width: 10vw;
-    height: 4vh;
+.icono-menu-4 .fa-solid {
+  cursor: pointer;
+  color: white;
 }
 
-.tabla{
-    display: grid;
-    grid-area: tabla;
+.derecha-grid {
+  display: grid;
+  grid-template-areas:
+    "tabla"
+    "botones";
+  grid-template-rows: 75vh 5vh;
+  grid-template-columns: 90vw;
+  row-gap: 3vh;
+  margin: 0 auto;
 }
 
-table{
-    width: 100%;
+.botones-contenido-derecha {
+  display: flex;
+  grid-area: botones;
+  justify-content: end;
 }
 
-.botones-contenido-abajo{
-    grid-area: campos;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-evenly;
+.boton-grid {
+  display: grid;
+  column-gap: 2vw;
+}
+
+.icono-boton {
+  grid-area: icono;
+}
+
+.boton {
+  grid-area: boton;
+}
+
+button {
+  width: 10vw;
+  height: 5vh;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-color: #191919;
+  color: #ffff;
+  font-size: 2vh;
+  font-weight: 300;
+  border-radius: 8px;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tabla {
+  display: grid;
+  align-items: center;
+  overflow-x: auto;
+
+}
+
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #191919;
+  color: white;
+}
+
+
+td {
+  text-align: center;
+  width: 500px;
+  padding: 20px;
+}
+
+th {
+  text-align: center;
 }
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    display: grid;
-    height: 50vh;
-    background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
-  }
-
-.modal-header{
-    text-align: center;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
-  .modal-body{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+/* Modal Content/Box */
+.modal-content {
+  display: grid;
+  height: 50vh;
+  background-color: #fefefe;
+  margin: 10% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  /* Could be more or less, depending on screen size */
+}
 
-  .modal-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.modal-header {
+  text-align: center;
+}
 
-  .campo{
-    padding-right: 2vw;
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-  input[type=text] {
-    width: 20vw;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.campo {
+  padding-right: 2vw;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 20vw;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
