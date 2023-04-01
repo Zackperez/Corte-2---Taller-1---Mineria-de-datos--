@@ -124,10 +124,7 @@ table {
 .tabla {
   display: grid;
   overflow-x: auto;
-  align-items: center;
-  align-content: center;
 }
-
 
 table th {
   padding-top: 12px;
@@ -136,10 +133,8 @@ table th {
   color: white;
 }
 
-
 td {
   text-align: center;
-  width: 500px;
   padding: 20px;
 }
 
