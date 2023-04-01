@@ -123,9 +123,9 @@ table {
 
 .tabla {
   display: grid;
-  align-items: center;
   overflow-x: auto;
-
+  align-items: center;
+  align-content: center;
 }
 
 

@@ -1,0 +1,175 @@
+@import url("global.css");
+
+.principal{
+    height: 100vh;
+    display: grid;
+}
+
+.contenido{
+    display: grid;
+    grid-template-areas: "izquierda derecha";
+    grid-template-columns: 8vw 92vw;
+}
+
+.contenido-izquierda{
+    display: flex;
+    grid-area: izquierda;
+    justify-content: center;
+}
+
+.menu{
+    display: flex;
+    margin: auto 0;
+    height: 95vh;
+    width: 5vw;
+    background-color: #191919;
+    border: 1px solid black;
+    border-radius: 0.7vw;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 30px;
+}
+
+.iconos{
+    display: grid;
+}
+
+.icono-menu, .icono-menu-2, .icono-menu-3, .icono-menu-4{
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+
+.fa-solid{
+    cursor: pointer;
+    color: white;
+}
+/*CONTENIDO DERECHA*/
+.contenido-derecha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(252, 249, 85);
+    height: 90vh;
+    margin: 25px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 20px;
+    flex-direction: column;
+ 
+}
+
+.textos{
+    display: flex;
+    margin: 35px;
+    flex-direction: column;
+    
+}
+.contenido-derecha h1{
+    margin-top: 10px;
+    text-align: right;
+}
+.contenido-derecha img{
+    height: 200px;
+    width: 200px;
+    margin: 30px;
+}
+.textos p{
+    margin: 20px;
+    text-align: justify;
+    width: 600px;
+}
+ul{
+    display: flex;
+    position: relative;
+    margin: 5px;
+    flex-direction: column;
+
+}
+button{
+    width: 10vw;
+    height: 4vh;
+}
+
+.tabla{
+    display: grid;
+    grid-area: tabla;
+}
+
+table{
+    width: 100%;
+}
+
+.botones-contenido-abajo{
+    grid-area: campos;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    display: grid;
+    height: 50vh;
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+
+.modal-header{
+    text-align: center;
+}
+
+  .modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .modal-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .campo{
+    padding-right: 2vw;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  input[type=text] {
+    width: 20vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
