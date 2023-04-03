@@ -48,7 +48,7 @@
                                 <i class="fa-solid fa-plus fa-2x"></i>
                             </div>
                             <div class="boton">
-                                <button id="myBtn" class="boton-1">Insertar datos...</button>
+                                <button id="btnModalInsertar" class="boton-1">Insertar datos...</button>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="myBtn" class="boton-1">Modificar</button>
+                                <button id="btnModalModificar" class="boton-1">Modificar</button>
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="btn_consultar" class="boton-1">Consultar</button>
+                                <button id="btnModalConsultar" class="boton-1">Consultar</button>
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="myBtn" class="boton-1">Eliminar</button>
+                                <button id="btnModalEliminar" class="boton-1">Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -91,18 +91,19 @@
                                     <th>Precio</th>
                                 </tr>
                             </thead>
-                            <tbody id ="table-body">
+                            <tbody id="table-body">
                             </tbody>
                         </table>
                     </div>
 
-                    <div id="myModal" class="modal">
+                    <div id="targetModalInsertar" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
-                                <span class="close">&times;</span>
-                                <h2>Insertar datos a la base de datos</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ducimus autem eum
+                                <span class="close-insertar">&times;</span>
+                                <h2 class="modal__titulo">Insertar datos</h2>
+                                <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nam ducimus autem eum
                                     consequuntur repellendus officia accusantium alias amet modi. Neque nobis et,
                                     error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
                             </div>
@@ -114,7 +115,14 @@
                                         <label for="name">Modelo</label>
                                     </div>
                                     <div class="campo__texto">
-                                        <input type="text" id="modelo" name="name" minlength="5" maxlength="15">
+                                        <select id="campo-modelo__combobox" class="combobox">
+                                            <option>ALASKAN</option>
+                                            <option>KWIND</option>
+                                            <option>LOGAN</option>
+                                            <option>SANDERO</option>
+                                            <option>SOUL</option>
+                                            <option>STEPWAY</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="campo">
@@ -122,7 +130,17 @@
                                         <label for="name">Año</label>
                                     </div>
                                     <div class="campo__texto">
-                                        <input type="text" id="año" name="name" minlength="5" maxlength="15">
+                                        <select id="campo-year__combobox" class="combobox">
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                            <option>2023</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="campo">
@@ -146,10 +164,151 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button id="boton-modal">Insertar</button>
+                                <button id="btnInsertarDatosModal">Insertar</button>
                             </div>
                         </div>
                     </div>
+
+                    <div id="targetModalModificar" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close-modificar">&times;</span>
+                                <h2 class="modal__titulo">Modificar datos</h2>
+                                <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nam ducimus autem eum
+                                    consequuntur repellendus officia accusantium alias amet modi. Neque nobis et,
+                                    error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Id</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <input type="text" id="modificar-id" name="name" minlength="5" maxlength="15">
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Modelo</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <select id="campo-modificar-modelo__combobox" class="combobox">
+                                            <option>ALASKAN</option>
+                                            <option>KWIND</option>
+                                            <option>LOGAN</option>
+                                            <option>SANDERO</option>
+                                            <option>SOUL</option>
+                                            <option>STEPWAY</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Año</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <select id="campo-modificar-year__combobox" class="combobox">
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                            <option>2023</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Precio</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <input type="text" id="modificar-precio" name="name" minlength="5" maxlength="15">
+                                    </div>
+                                </div>
+
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Kilometraje</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <input type="text" id="modificar-kilometraje" name="name" minlength="5" maxlength="15">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnModificarDatosModal">Insertar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="targetModalEliminar" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close close-eliminar">&times;</span>
+                                <h2 class="modal__titulo">Eliminar datos</h2>
+                                <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nam ducimus autem eum
+                                    consequuntur repellendus officia accusantium alias amet modi. Neque nobis et,
+                                    error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Id</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <input type="text" id="eliminar-id" name="name" minlength="5" maxlength="15">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnEliminarDatosModal">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="targetModalConsultar" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close close-consultar">&times;</span>
+                                <h2 class="modal__titulo">Consultar datos</h2>
+                                <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Nam ducimus autem eum
+                                    consequuntur repellendus officia accusantium alias amet modi. Neque nobis et,
+                                    error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="campo">
+                                    <div class="campo__titulo">
+                                        <label for="name">Id</label>
+                                    </div>
+                                    <div class="campo__texto">
+                                        <input type="text" id="consultar-id" name="name" minlength="5" maxlength="15">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button id="btnConsultarDatosModal">Consultar</button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

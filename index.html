@@ -6,64 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Estilos-->
-    <link rel="stylesheet" href="../estilos/normalice.css">
-    <!--Estilos propios-->
-    <link rel="stylesheet" href="../estilos/index.css">
-    <link rel="shortcut icon" href="../imagenes/renault.png" type="image/x-icon">
-    <title>Pagina principal</title>
+    <!-- Estilos propios-->
+    <link rel="stylesheet" href="estilos/grillas-index.css">
+    <link rel="stylesheet" href="estilos/index.css">
+    <title>Document</title>
 </head>
 
-<body>
+<body class="pagina">
 
-    <section class="principal">
-        <div class="contenido">
-            <div class="contenido-izquierda">
-                
-                <nav class="menu">
-                    <div class="iconos">
-                        <div class="icono-menu">
-                            <a href="index.html"><i class="fa-solid fa-house fa-2x"></i></a> 
-                        </div>
-                        <div class="icono-menu-2">
-                            <a href="/paginas/operaciones.html"> <i class="fa-solid fa-folder fa-2x"></i></a>
+    <header>
+        <div class="pagina__menu">
+            <nav class="menu-principal__contenedor">
+                <ul class="menu-principal__contenido">
+                    <li class="menu-principal__item"><a href="#index.html">Inicio</a></li>
+                    <li class="menu-principal__item"><a href="paginas/operaciones.html">Tabla</a></li>
+                    <li class="menu-principal__item"><a href="#Pagina__interes">Interes</a></li>
+                    <li class="menu-principal__item"><a href="#Pagina__servicios">Servicios</a></li>
+                    <li class="menu-principal__item"><a href="">Acerca de mi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-                        </div>
-                        <div class="icono-menu-3">
-                            <i class="fa-solid fa-chart-simple fa-2x"></i>
-                        </div>
-                        <div class="icono-menu-4">
-                            <i class="fa-solid fa-question fa-2x"></i>
-                        </div>
+    <main>
+        <div class="pagina__contenedor">
+
+            <section class="pagina__inicio">
+                <div class="inicio__contenido">
+
+                    <div class="incio-titulo">
+                        <h1 class="inicio__titulo">Página de documentación</h1>
+                        <h4 class="inicio__subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pla de
+                            popopossimus nemo?Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deleniti
+                            ea
+                            iure illo temporibus fugit, dolorem ad assumenda maiores unde.</h4>
                     </div>
 
-                </nav>
-            </div>
+                    <div class="inicio-parrafo">
 
-            <div class="contenido-derecha">
-                        <h1>Bienvenidos a nuestra pagina</h1>
-                        <img src="imagenes/renault.png">
-                    <div class="textos">
-                            
-                            <p class="texto">
-                                Nuestra sitio web esta desarrollado en base a los autos de la marca renault. <br>
-                                Y a continuacion le contamos las funcionalidades con las que este cuenta:                            
-                            </p>
-                    
-                        <ul>
-                            <li>CRUD</li>
-                            <li>CRUD</li>
-                            <li>CRUD</li>
-                            <li>CRUD</li>
-                            <li>CRUD</li>
-                        </ul>
+                    </div>
+
+
+
+                    <figure class="inicio-imagen">
+                        <img src="imagenes/renault.png" alt="" class="inicio__imagen">
+                        <div class="inicio-boton">
+                            <a class="inicio__link" href="documentacion.html">Leer documentación</a>
+                        </div>
+                    </figure>
+
+                </div>
+            </section>
+
+            <section class="pagina__servicios">
+                <div class="servicios__contenedor">
+                    <div class="servicios__contenido">
+                        <h1>servicios__contenido</h1>
                     </div>
                 </div>
 
-    </section>
+            </section>
 
-    <script src="https://kit.fontawesome.com/1a5bcd4a97.js" crossorigin="anonymous"></script>
-    <script src="../javascript/operaciones-js.js"></script>
+        </div>
+    </main>
+
+    <footer>
+        <h1>footer__contenido</h1>
+
+    </footer>
+
+
+
 </body>
 
 </html>
