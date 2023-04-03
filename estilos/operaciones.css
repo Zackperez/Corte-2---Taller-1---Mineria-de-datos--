@@ -128,7 +128,7 @@ table {
   border-radius: 1vw;
 }
 
-table th {
+th {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #191919;
@@ -141,10 +141,6 @@ td {
   border-bottom: 1px solid #f1f1f1;
 }
 
-th {
-  position: sticky;
-  text-align: center;
-}
 
 /* The Modal (background) */
 .modal {
@@ -168,6 +164,10 @@ th {
   /* Black w/ opacity */
 }
 
+.modal-consultar .modal-content{
+  height: 60vh;
+}
+
 /* Modal Content/Box */
 .modal-content {
   display: grid;
@@ -180,6 +180,12 @@ th {
   border-radius: 0.4vw;
   /* Could be more or less, depending on screen size */
 }
+
+.campo-respuestas .campo-id{
+  display: flex;
+    align-items: center;
+}
+
 
 .modal-header {
   text-align: center;
@@ -299,4 +305,36 @@ input[type=text] {
 
 .modal-footer button{
   margin-right: 3.1vw;
+}
+
+.campo-respuestas{
+  display: grid;
+  grid-template-areas: 
+  "campo_id"
+  "resultados";
+  justify-items: center;
+}
+
+.campo-titulo{
+  grid-area: campo_id;
+}
+
+.campo-resultados{
+  grid-area: resultados;
+}
+
+.tabla-2{
+  height: 20vh;
+  width: 50vw;
+  border: 1px solid #eeeeee;
+  border-radius: 1vw;
+}
+
+.campo-id input[type=text]{
+  width: 10vw;
+  height: 5vh;
+}
+
+#boton-buscar, #boton-limpiar{
+  cursor: pointer;
 }

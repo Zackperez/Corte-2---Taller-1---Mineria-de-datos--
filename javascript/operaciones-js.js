@@ -126,7 +126,7 @@ var modalConsultar = document.getElementById("targetModalConsultar");
 var span = document.getElementsByClassName("close-consultar")[0];
 
 //Boton dentro del modal
-const btnConsultarDatosModal = document.getElementById('btnConsultarDatosModal');
+const btnConsultarDatosModal = document.getElementById('boton-buscar');
 
 // When the user clicks the button, open the modal 
 btnModalConsultar.onclick = function () {
@@ -176,16 +176,10 @@ function modificar_datos() {
       method: "POST",
       url: "http://127.0.0.1:4000/modificar_vehiculo",
       data: respuestas_preguntas,
-  })
+    })
       .then(res =>
-          console.log(res))
+        console.log(res))
       .catch(err => console.log('Error:', err))
-
-      modificarId.value = "";
-      modificarModelo.value = "";
-      modificarAño.value = "";
-      modificarPrecio.value = "";
-      modificarKilometraje.value = "";
   }
 
 }
@@ -206,9 +200,9 @@ function eliminar_datos() {
       method: "DELETE",
       url: "http://127.0.0.1:4000/eliminar_vehiculo",
       data: respuestas_preguntas,
-  })
+    })
       .then(res =>
-          console.log(res))
+        console.log(res))
       .catch(err => console.log('Error:', err))
   }
 
@@ -223,7 +217,9 @@ btnEliminarDatosModal.onclick = function () {
   eliminar_datos();
 }
 
-
+btnConsultarDatosModal.onclick = function () {
+  consultar_datos();
+}
 
 /* Funciones */
 
@@ -261,6 +257,37 @@ function insertar_valores() {
   }
 }
 
-btnEliminarDatosModal
 
+
+
+function consultar_datos() {
+
+  const consultarId = document.getElementById('consultar-id').value;
+  const parrafo_resultados = document.getElementById('parrafo-resultados')
+  const tbodyConsultar = document.getElementById('table-body-consultar');
+
+  if (consultarId == "") {
+    alert("Asegurate que los campos no estén vacíos");
+  } else {
+
+    axios.get('http://localhost:4000//mostrar_vehiculo/' + consultarId)
+      .then(function (response) {
+        console.log(response.data[0]);
+        console.log(response.data[0][0]);
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${response.data[0][0]}</td>
+        <td>${response.data[0][2]}</td>
+        <td>${response.data[0][3]}</td>
+        <td>${response.data[0][4]}</td>
+        <td>${response.data[0][1]}</td>
+      `;
+        tbodyConsultar.appendChild(tr);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+}
 

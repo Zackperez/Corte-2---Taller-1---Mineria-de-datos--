@@ -16,8 +16,8 @@
 
 <body>
 
-    <section class="principal">
-        <div class="contenido">
+    <main class="principal">
+        <section class="contenido">
             <div class="contenido-izquierda">
                 <nav class="menu">
                     <div class="iconos">
@@ -279,7 +279,7 @@
                         </div>
                     </div>
 
-                    <div id="targetModalConsultar" class="modal">
+                    <div id="targetModalConsultar" class="modal modal-consultar">
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
@@ -292,28 +292,47 @@
                             </div>
 
                             <div class="modal-body">
-                                <div class="campo">
-                                    <div class="campo__titulo">
-                                        <label for="name">Id</label>
+                                <div class="campo campo-respuestas">
+                                    <div class="campo-id">
+                                        <div class="campo__label">
+                                            <label for="name">Ingresa el id del vehiculo a buscar  </label>
+                                        </div>
+                                        <div class="campo__input">
+                                            <input type="text" id="consultar-id" name="name" minlength="5" maxlength="15">
+                                        </div>
+                                        <div class="campo__botones">
+                                            <i id = "boton-buscar" class="fa-solid fa-magnifying-glass fa-2x"></i>
+                                            <i id = "boton-limpiar" class="fa-solid fa-broom fa-2x"></i>
+                                        </div>
+
                                     </div>
-                                    <div class="campo__texto">
-                                        <input type="text" id="consultar-id" name="name" minlength="5" maxlength="15">
+                                    <div class="campo-resultados">
+                                        <div class="tabla-2">
+                                            <table>
+                                                <thead>
+                                                    <th>Id</th>
+                                                    <th>Modelo</th>
+                                                    <th>Año</th>
+                                                    <th>Kilometraje</th>
+                                                    <th>Precio</th>
+                                                </thead>
+                                                <tbody id="table-body-consultar">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="modal-footer">
-                                <button id="btnConsultarDatosModal">Consultar</button>
-                            </div>
                         </div>
                     </div>
 
 
                 </div>
             </div>
-        </div>
-
-    </section>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/1a5bcd4a97.js" crossorigin="anonymous"></script>
