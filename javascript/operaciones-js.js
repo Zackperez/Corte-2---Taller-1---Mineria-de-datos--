@@ -1,5 +1,15 @@
 // Cuando cargue toda la página se ejecutará lo que esté dentro
+const boton_limpiar = document.getElementById('boton-limpiar');
+const campo_id = document.getElementById('consultar-id');
 
+
+boton_limpiar.onclick = function (){
+  campo_id.value = "";
+}
+
+function limpiar_campos(){
+
+}
 const tbody = document.getElementById('table-body');
 
 
@@ -14,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const tr = document.createElement('tr');
         tr.innerHTML = `
         <td>${datos.id}</td>
-        <td>${datos.año}</td>
         <td>${datos.modelo}</td>
+        <td>${datos.año}</td>
         <td>${datos.kilometraje}</td>
         <td>${datos.precio}</td>
       `;
@@ -192,15 +202,7 @@ function eliminar_datos() {
     alert("Asegurate que los campos no estén vacíos");
   } else {
 
-    const respuestas_preguntas = {
-      eliminarId: eliminarId
-    }
-
-    axios({
-      method: "DELETE",
-      url: "http://127.0.0.1:4000/eliminar_vehiculo",
-      data: respuestas_preguntas,
-    })
+    axios.delete("http://127.0.0.1:4000/eliminar_vehiculo/" + eliminarId)
       .then(res =>
         console.log(res))
       .catch(err => console.log('Error:', err))
@@ -220,6 +222,7 @@ btnEliminarDatosModal.onclick = function () {
 btnConsultarDatosModal.onclick = function () {
   consultar_datos();
 }
+
 
 /* Funciones */
 
@@ -257,6 +260,9 @@ function insertar_valores() {
   }
 }
 
+btnInsertarDatosModal.onclick = function(){
+  insertar_valores();
+}
 
 
 

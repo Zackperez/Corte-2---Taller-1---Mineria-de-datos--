@@ -1,82 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Metas necesarios -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 
-    <!-- Estilos propios-->
-    <link rel="stylesheet" href="estilos/grillas-index.css">
-    <link rel="stylesheet" href="estilos/index.css">
-    <title>Document</title>
+	<!-- Estilos Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+	<!-- Estilos propios -->
+	<link rel="stylesheet" href="estilos/principal.css">
+
+	<!-- Scripts propios -->
+	<script type="text/javascript" src="javascript/valid-sesion.js" async></script>
+
+
+	<title>Document</title>
 </head>
+<body>
 
-<body class="pagina">
+	<!--Menu - navbar -->
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  <a class="navbar-brand" href="#">ZackPerez</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Registrarse</a>
+		      </li>
 
-    <header>
-        <div class="pagina__menu">
-            <nav class="menu-principal__contenedor">
-                <ul class="menu-principal__contenido">
-                    <li class="menu-principal__item"><a href="#index.html">Inicio</a></li>
-                    <li class="menu-principal__item"><a href="paginas/operaciones.html">Tabla</a></li>
-                    <li class="menu-principal__item"><a href="#Pagina__interes">Interes</a></li>
-                    <li class="menu-principal__item"><a href="#Pagina__servicios">Servicios</a></li>
-                    <li class="menu-principal__item"><a href="">Acerca de mi</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+		      <!-- Modal -->
+		      <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		        <div class="modal-dialog">
+		          <div class="modal-content">
+		            <div class="modal-header">
+		              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		                <span aria-hidden="true">×</span>
+		              </button>
+		            </div>
+		            <div class="modal-body">
+		            	<h1 class="modal-h1">Registrate</h1>
+		            	<p class="modal-p">Una vez registrado, espera la activación de tu cuenta.</p>
+		            	<input id="nombre" placeholder="Ingresa tu nombre" class="form-control">
+		            	<input id="apellido" placeholder="Ingresa tu apellido" class="form-control">
+		            	<input id="email" placeholder="Ingresa un email" class="form-control"> 
+		            	<input type="password" id="contrasena" placeholder="Contraseña" class="form-control">
+		            	<div id="mensajeVerificacion">
+		            		
+		            	</div>
+		            </div>
+		            <div class="modal-footer">
+		              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 
-    <main>
-        <div class="pagina__contenedor">
+		              <!--Boton con función de registrar al usuario -->
+		              <button onclick="registrar()" class="btn btn-primary">Registrarse</button>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+	</ul></div></nav></header>
+	
+	<!-- pantalla principal -->
+	<section id="principal">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-6">
+					<img src="imagenes/register.svg" class="principal-imagen">
+				</div>
+				<div class="col-md-6">
+					<h1 class="principal-h1">Inicia Sesión</h1>
 
-            <section class="pagina__inicio">
-                <div class="inicio__contenido">
+					<input type="email" id="email2" placeholder="correo electrónico" class="form-control" > 
+					<div id="errorEmail">
 
-                    <div class="incio-titulo">
-                        <h1 class="inicio__titulo">Página de documentación</h1>
-                        <h4 class="inicio__subtitulo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pla de
-                            popopossimus nemo?Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima deleniti
-                            ea
-                            iure illo temporibus fugit, dolorem ad assumenda maiores unde.</h4>
-                    </div>
+					</div>
 
-                    <div class="inicio-parrafo">
+					<input type="password" id="contrasena2" placeholder="contraseña" class="form-control">
+					<div id="errorPass">
+						
+					</div>
+					
 
-                    </div>
+					<div id="contenido">
+						
+					</div>
+					<!--PROBLEMAS EN MODO RESPONSIVE-->
+					<p class="principal-p">¿No tienes una cuenta aún? <a href="#" data-toggle="modal" data-target="#registerModal"><span class="principal-span">Registrate haciendo click aquí</span></a></p>
+					<!--Boton con función de ingresar al usuario -->
+					<button id="botton" class="btn btn-light">Iniciar Sesión</button>
+				</div>
+			</div>
+		</div>
+		<div style="height: 125px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.67,21.20 C149.99,150.00 359.76,-67.59 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #ffffff;"></path></svg></div>
+		<!-- <img src="img/wave1.png" class="ola"> -->
+	</section>
 
+	<!-- Scripts de Bootstrap -->
 
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-                    <figure class="inicio-imagen">
-                        <img src="imagenes/renault.png" alt="" class="inicio__imagen">
-                        <div class="inicio-boton">
-                            <a class="inicio__link" href="documentacion.html">Leer documentación</a>
-                        </div>
-                    </figure>
-
-                </div>
-            </section>
-
-            <section class="pagina__servicios">
-                <div class="servicios__contenedor">
-                    <div class="servicios__contenido">
-                        <h1>servicios__contenido</h1>
-                    </div>
-                </div>
-
-            </section>
-
-        </div>
-    </main>
-
-    <footer>
-        <h1>footer__contenido</h1>
-
-    </footer>
-
-
-
+	
 </body>
-
 </html>
