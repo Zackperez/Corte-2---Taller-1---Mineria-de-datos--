@@ -5,26 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!--Estilos-->
-    <link rel="stylesheet" href="../estilos/normalice.css">
-    <!--Estilos propios-->
     <link rel="stylesheet" href="../estilos/operaciones.css">
-    <link rel="shortcut icon" href="../imagenes/pestaña-icono.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagenes/renault.png" type="image/x-icon">
     <title>CRUD</title>
 </head>
 
 <body>
 
     <main class="principal">
-        <section class="contenido">
+        <section class="principal-contenido">
 
             <div class="contenido-izquierda">
                 <nav class="menu">
                     <div class="iconos">
 
                         <div class="icono-menu">
-                            <a href="../index.html"><i class="fa-solid fa-house fa-2x"></i></a>
+                            <a href="inicio.html"><i class="fa-solid fa-house fa-2x"></i></a>
                         </div>
 
                         <div class="icono-menu-2">
@@ -55,7 +52,7 @@
                                 <i class="fa-solid fa-plus fa-2x"></i>
                             </div>
                             <div class="boton">
-                                <button id="btnModalInsertar" class="boton-1">Insertar datos...</button>
+                                <button id="btnAbrirModalInsertar" class="boton-1">Insertar datos...</button>
                             </div>
                         </div>
 
@@ -64,7 +61,7 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="btnModalModificar" class="boton-1">Modificar</button>
+                                <button id="btnAbrirModalModificar" class="boton-1">Modificar</button>
                             </div>
                         </div>
 
@@ -73,7 +70,7 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="btnModalConsultar" class="boton-1">Consultar</button>
+                                <button id="btnAbrirModalConsultar" class="boton-1">Consultar</button>
                             </div>
                         </div>
 
@@ -82,12 +79,12 @@
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                             <div class="boton">
-                                <button id="btnModalEliminar" class="boton-1">Eliminar</button>
+                                <button id="btnAbrirModalEliminar" class="boton-1">Eliminar</button>
                             </div>
                         </div>
                     </div>
 
-                    <div id="mi-tabla" class="tabla">
+                    <div class="contenedor-tabla-principal">
                         <table>
                             <thead>
                                 <tr>
@@ -98,16 +95,16 @@
                                     <th>Precio</th>
                                 </tr>
                             </thead>
-                            <tbody id="table-body">
-                            </tbody>
+                            <tbody id="tabla-principal-cuerpo">
+                            </tbody> 
                         </table>
                     </div>
 
                     <div id="targetModalInsertar" class="modal">
                         <!-- Modal content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close-insertar">&times;</span>
+                        <div class="modal-contenido">
+                            <div class="modal-cabecera">
+                                <span class="btn-cerrar-modal cerrar-modal-insertar">&times;</span>
                                 <h2 class="modal__titulo">Insertar datos</h2>
                                 <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nam ducimus autem eum
@@ -115,7 +112,7 @@
                                     error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-cuerpo">
 
                                 <div class="campo">
                                     <div class="campo__titulo">
@@ -170,7 +167,7 @@
 
                             </div>
 
-                            <div class="modal-footer">
+                            <div class="modal-pie">
                                 <button id="btnInsertarDatosModal">Insertar</button>
                             </div>
                         </div>
@@ -178,9 +175,9 @@
 
                     <div id="targetModalModificar" class="modal">
                         <!-- Modal content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close-modificar">&times;</span>
+                        <div class="modal-contenido">
+                            <div class="modal-cabecera">
+                                <span class="btn-cerrar-modal cerrar-modal-modificar">&times;</span>
                                 <h2 class="modal__titulo">Modificar datos</h2>
                                 <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nam ducimus autem eum
@@ -188,7 +185,7 @@
                                     error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-cuerpo">
                                 <div class="campo">
                                     <div class="campo__titulo">
                                         <label for="name">Id</label>
@@ -251,7 +248,7 @@
                                 </div>
                             </div>
 
-                            <div class="modal-footer">
+                            <div class="modal-pie">
                                 <button id="btnModificarDatosModal">Insertar</button>
                             </div>
                         </div>
@@ -259,9 +256,9 @@
 
                     <div id="targetModalEliminar" class="modal">
                         <!-- Modal content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close close-eliminar">&times;</span>
+                        <div class="modal-contenido">
+                            <div class="modal-cabecera">
+                                <span class="btn-cerrar-modal cerrar-modal-eliminar">&times;</span>
                                 <h2 class="modal__titulo">Eliminar datos</h2>
                                 <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nam ducimus autem eum
@@ -269,7 +266,7 @@
                                     error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-cuerpo">
                                 <div class="campo">
                                     <div class="campo__titulo">
                                         <label for="name">Id</label>
@@ -280,7 +277,7 @@
                                 </div>
                             </div>
 
-                            <div class="modal-footer">
+                            <div class="modal-pie">
                                 <button id="btnEliminarDatosModal">Eliminar</button>
                             </div>
                         </div>
@@ -288,9 +285,9 @@
 
                     <div id="targetModalConsultar" class="modal modal-consultar">
                         <!-- Modal content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close close-consultar">&times;</span>
+                        <div class="modal-contenido">
+                            <div class="modal-cabecera">
+                                <span class="btn-cerrar-modal cerrar-modal-consultar">&times;</span>
                                 <h2 class="modal__titulo">Consultar datos</h2>
                                 <p class="modal__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     Nam ducimus autem eum
@@ -298,23 +295,23 @@
                                     error odio nesciunt ullam voluptatibus quod accusamus ipsa.</p>
                             </div>
 
-                            <div class="modal-body">
-                                <div class="campo campo-respuestas">
+                            <div class="modal-cuerpo">
+                                <div class="campo">
                                     <div class="campo-id">
                                         <div class="campo__label">
                                             <label for="name">Ingresa el id del vehiculo a buscar  </label>
                                         </div>
                                         <div class="campo__input">
-                                            <input type="text" id="consultar-id" name="name" minlength="5" maxlength="15">
+                                            <input type="text" id="modalConsultarCampoId" name="name" minlength="5" maxlength="15">
                                         </div>
                                         <div class="campo__botones">
-                                            <i id = "boton-buscar" class="fa-solid fa-magnifying-glass fa-2x"></i>
-                                            <i id = "boton-limpiar" class="fa-solid fa-broom fa-2x"></i>
+                                            <i id = "boton-consultar-registro" class="fa-solid fa-magnifying-glass fa-2x"></i>
+                                            <i id = "btnLimpiarCampoId" class="fa-solid fa-broom fa-2x"></i>
                                         </div>
 
                                     </div>
                                     <div class="campo-resultados">
-                                        <div class="tabla-2">
+                                        <div class="tabla-resultados-datos-vehiculo">
                                             <table>
                                                 <thead>
                                                     <th>Id</th>
@@ -323,7 +320,7 @@
                                                     <th>Kilometraje</th>
                                                     <th>Precio</th>
                                                 </thead>
-                                                <tbody id="table-body-consultar">
+                                                <tbody id="tablaCuerpoResultadosDatosVehiculo">
                                                 </tbody>
                                             </table>
                                         </div>

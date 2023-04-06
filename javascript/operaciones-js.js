@@ -1,64 +1,42 @@
-// Cuando cargue toda la página se ejecutará lo que esté dentro
-const boton_limpiar = document.getElementById('boton-limpiar');
-const campo_id = document.getElementById('consultar-id');
-
-
-boton_limpiar.onclick = function (){
-  campo_id.value = "";
-}
-
-function limpiar_campos(){
-
-}
-const tbody = document.getElementById('table-body');
-
-
+// Cuando cargue la página, se llenará automaticamente la tabla con los registros de la base de datos
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* Se llena automaticamente la tabla */
+  const tablaPrincipalCuerpo = document.getElementById('tabla-principal-cuerpo');
 
-  fetch('http://127.0.0.1:4000/mostrar_datos_tabla/')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach(datos => {
+  axios.get('http://127.0.0.1:4000/mostrar_registros_tabla/')
+    .then(function (response) {
+      // response.data es el array que contiene la respuesta obtenida (response) y con forEach se itera en cada uno como si fuese un json
+      response.data.forEach(datos => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-        <td>${datos.id}</td>
-        <td>${datos.modelo}</td>
-        <td>${datos.año}</td>
-        <td>${datos.kilometraje}</td>
-        <td>${datos.precio}</td>
-      `;
-        tbody.appendChild(tr);
+          <td>${datos.id}</td>
+          <td>${datos.modelo}</td>
+          <td>${datos.año}</td>
+          <td>${datos.kilometraje}</td>
+          <td>${datos.precio}</td>
+        `;
+        tablaPrincipalCuerpo.appendChild(tr);
       });
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 })
-// Fin del cargue de documentos
 
 /* MODAL INSERTAR */
-//Boton para abrir el modal
-var btnModalInsertar = document.getElementById("btnModalInsertar");
-
-// Target del modal
 var modalInsertar = document.getElementById("targetModalInsertar");
-
-// icono para cerrar el modal 
-var span = document.getElementsByClassName("close-insertar")[0];
-
-//Boton dentro del modal
+var btnAbrirModalInsertar = document.getElementById("btnAbrirModalInsertar");
+var btnCerrarModalInsertar = document.getElementsByClassName("cerrar-modal-insertar")[0];
 const btnInsertarDatosModal = document.getElementById('btnInsertarDatosModal');
 
-// When the user clicks the button, open the modal 
-btnModalInsertar.onclick = function () {
+btnAbrirModalInsertar.onclick = function () {
   modalInsertar.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+btnCerrarModalInsertar.onclick = function () {
   modalInsertar.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modalInsertar) {
     modalInsertar.style.display = "none";
@@ -66,29 +44,19 @@ window.onclick = function (event) {
 }
 
 /* MODAL MODIFICAR */
-//Boton para abrir el modal
-var btnModalModificar = document.getElementById("btnModalModificar");
-
-// Target del modal
 var modalModificar = document.getElementById("targetModalModificar");
-
-// icono para cerrar el modal 
-var span = document.getElementsByClassName("close-modificar")[0];
-
-//Boton dentro del modal
+var btnAbrirModalModificar = document.getElementById("btnAbrirModalModificar");
+var btnCerrarModalModificar = document.getElementsByClassName("cerrar-modal-modificar")[0];
 const btnModificarDatosModal = document.getElementById('btnModificarDatosModal');
 
-// When the user clicks the button, open the modal 
-btnModalModificar.onclick = function () {
+btnAbrirModalModificar.onclick = function () {
   modalModificar.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+btnCerrarModalModificar.onclick = function () {
   modalModificar.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modalModificar) {
     modalModificar.style.display = "none";
@@ -96,29 +64,19 @@ window.onclick = function (event) {
 }
 
 /* MODAL Eliminar */
-//Boton para abrir el modal
-var btnModalEliminar = document.getElementById("btnModalEliminar");
-
-// Target del modal
 var modalEliminar = document.getElementById("targetModalEliminar");
-
-// icono para cerrar el modal 
-var span = document.getElementsByClassName("close-eliminar")[0];
-
-//Boton dentro del modal
+var btnAbrirModalEliminar = document.getElementById("btnAbrirModalEliminar");
+var btnCerrarModalEliminar = document.getElementsByClassName("cerrar-modal-eliminar")[0];
 const btnEliminarDatosModal = document.getElementById('btnEliminarDatosModal');
 
-// When the user clicks the button, open the modal 
-btnModalEliminar.onclick = function () {
+btnAbrirModalEliminar.onclick = function () {
   modalEliminar.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+btnCerrarModalEliminar.onclick = function () {
   modalEliminar.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modalEliminar) {
     modalEliminar.style.display = "none";
@@ -126,107 +84,33 @@ window.onclick = function (event) {
 }
 
 /* MODAL Consultar */
-//Boton para abrir el modal
-var btnModalConsultar = document.getElementById("btnModalConsultar");
-
-// Target del modal
 var modalConsultar = document.getElementById("targetModalConsultar");
+var btnAbrirModalConsultar = document.getElementById("btnAbrirModalConsultar");
+var cerrarModalConsultar = document.getElementsByClassName("cerrar-modal-consultar")[0];
+const btnConsultarDatosModal = document.getElementById('boton-consultar-registro');
+const btnLimpiarCampoId = document.getElementById('btnLimpiarCampoId');
+const modalConsultarCampoId = document.getElementById('modalConsultarCampoId');
 
-// icono para cerrar el modal 
-var span = document.getElementsByClassName("close-consultar")[0];
-
-//Boton dentro del modal
-const btnConsultarDatosModal = document.getElementById('boton-buscar');
-
-// When the user clicks the button, open the modal 
-btnModalConsultar.onclick = function () {
+btnAbrirModalConsultar.onclick = function () {
   modalConsultar.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
+cerrarModalConsultar.onclick = function () {
   modalConsultar.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   if (event.target == modalConsultar) {
     modalConsultar.style.display = "none";
   }
 }
 
-
-
-function modificar_datos() {
-  //"UPDATE proovedores SET Nombre =?, Celular = ?, Direccion = ?, Correo = ? WHERE idProveedor = ?";
-  const modificarId = document.getElementById('modificar-id').value;
-  const modificarModelo = document.getElementById('campo-modificar-modelo__combobox').value;
-  const modificarAño = document.getElementById('campo-modificar-year__combobox').value;
-  const modificarPrecio = document.getElementById('modificar-precio').value;
-  const modificarKilometraje = document.getElementById('modificar-kilometraje').value;
-  let formato_precio = Intl.NumberFormat("de-DE");
-  let formato_kilometraje = Intl.NumberFormat("de-DE");
-
-  if (modificarId == "" || modificarModelo == "" || modificarAño == "" || modificarPrecio == "" || modificarKilometraje == "") {
-    alert("Asegurate que los campos no estén vacíos");
-  } else {
-
-    precio = formato_precio.format(modificarPrecio);
-    kilometraje = formato_kilometraje.format(modificarKilometraje);
-
-    const respuestas_preguntas = {
-      modificarId: modificarId,
-      modificarModelo: modificarModelo,
-      modificarAño: modificarAño,
-      modificarKilometraje: kilometraje + " km",
-      modificarPrecio: "$ " + precio
-    }
-
-    axios({
-      method: "POST",
-      url: "http://127.0.0.1:4000/modificar_vehiculo",
-      data: respuestas_preguntas,
-    })
-      .then(res =>
-        console.log(res))
-      .catch(err => console.log('Error:', err))
-  }
-
+btnLimpiarCampoId.onclick = function () {
+  modalConsultarCampoId.value = "";
 }
-
-function eliminar_datos() {
-  const eliminarId = document.getElementById('eliminar-id').value;
-
-
-  if (eliminarId == "") {
-    alert("Asegurate que los campos no estén vacíos");
-  } else {
-
-    axios.delete("http://127.0.0.1:4000/eliminar_vehiculo/" + eliminarId)
-      .then(res =>
-        console.log(res))
-      .catch(err => console.log('Error:', err))
-  }
-
-}
-
-/* Botones */
-btnModificarDatosModal.onclick = function () {
-  modificar_datos();
-}
-
-btnEliminarDatosModal.onclick = function () {
-  eliminar_datos();
-}
-
-btnConsultarDatosModal.onclick = function () {
-  consultar_datos();
-}
-
 
 /* Funciones */
-
-function insertar_valores() {
+function insertar_datos_vehiculo() {
   const campo_modelo = document.getElementById('campo-modelo__combobox').value;
   const campo_año = document.getElementById('campo-year__combobox').value;
   const campo_kilometraje = document.getElementById("kilometraje").value;
@@ -251,7 +135,7 @@ function insertar_valores() {
 
     axios({
       method: "POST",
-      url: "http://127.0.0.1:4000/insertar_datos/",
+      url: "http://127.0.0.1:4000/insertar_datos_vehiculo/",
       data: datos_insertar
     })
       .then(res =>
@@ -260,26 +144,67 @@ function insertar_valores() {
   }
 }
 
-btnInsertarDatosModal.onclick = function(){
-  insertar_valores();
+function modificar_datos_vehiculo() {
+  const modificarId = document.getElementById('modificar-id').value;
+  const modificarModelo = document.getElementById('campo-modificar-modelo__combobox').value;
+  const modificarAño = document.getElementById('campo-modificar-year__combobox').value;
+  const modificarPrecio = document.getElementById('modificar-precio').value;
+  const modificarKilometraje = document.getElementById('modificar-kilometraje').value;
+  let formato_precio = Intl.NumberFormat("de-DE");
+  let formato_kilometraje = Intl.NumberFormat("de-DE");
+
+  if (modificarId == "" || modificarModelo == "" || modificarAño == "" || modificarPrecio == "" || modificarKilometraje == "") {
+    alert("Asegurate que los campos no estén vacíos");
+  } else {
+    precio = formato_precio.format(modificarPrecio);
+    kilometraje = formato_kilometraje.format(modificarKilometraje);
+
+    const respuestas_preguntas = {
+      modificarId: modificarId,
+      modificarModelo: modificarModelo,
+      modificarAño: modificarAño,
+      modificarKilometraje: kilometraje + " km",
+      modificarPrecio: "$ " + precio
+    }
+
+    axios({
+      method: "POST",
+      url: "http://127.0.0.1:4000/modificar_datos_vehiculo",
+      data: respuestas_preguntas,
+    })
+      .then(res =>
+        console.log(res))
+      .catch(err => console.log('Error:', err))
+  }
+
 }
 
+function eliminar_datos_vehiculo() {
+  const eliminarId = document.getElementById('eliminar-id').value;
 
-
-function consultar_datos() {
-
-  const consultarId = document.getElementById('consultar-id').value;
-  const parrafo_resultados = document.getElementById('parrafo-resultados')
-  const tbodyConsultar = document.getElementById('table-body-consultar');
-
-  if (consultarId == "") {
+  if (eliminarId == "") {
     alert("Asegurate que los campos no estén vacíos");
   } else {
 
-    axios.get('http://localhost:4000//mostrar_vehiculo/' + consultarId)
+    axios.delete("http://127.0.0.1:4000/eliminar_vehiculo/" + eliminarId)
+      .then(res =>
+        console.log(res))
+      .catch(err => console.log('Error:', err))
+  }
+
+}
+
+function consultar_datos_vehiculo() {
+
+  const modalConsultarCampoId = document.getElementById('modalConsultarCampoId').value;
+  const tbodyConsultar = document.getElementById('tablaCuerpoResultadosDatosVehiculo');
+
+  if (modalConsultarCampoId == "") {
+    alert("Asegurate que los campos no estén vacíos");
+  } else {
+
+    axios.get('http://127.0.0.1:4000/mostrar_vehiculo/' + modalConsultarCampoId)
       .then(function (response) {
-        console.log(response.data[0]);
-        console.log(response.data[0][0]);
         const tr = document.createElement('tr');
         tr.innerHTML = `
         <td>${response.data[0][0]}</td>
@@ -296,4 +221,25 @@ function consultar_datos() {
   }
 
 }
+
+/* Botones */
+btnInsertarDatosModal.onclick = function () {
+  insertar_datos_vehiculo();
+}
+
+btnModificarDatosModal.onclick = function () {
+  modificar_datos_vehiculo();
+}
+
+btnEliminarDatosModal.onclick = function () {
+  eliminar_datos_vehiculo();
+}
+
+btnConsultarDatosModal.onclick = function () {
+  consultar_datos_vehiculo();
+}
+
+
+
+
 

@@ -1,10 +1,4 @@
-@import url(normalice.css);
 @import url(global.css);
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;700&display=swap');
-
-ul {
-    list-style: none;
-}
 
 .principal {
     height: 100vh;
@@ -22,7 +16,7 @@ ul {
 .contenido-izquierda {
     display: flex;
     margin-top: 2vh;
-    margin-left: 2vw;
+    margin-left: 1.6vw;
     position: fixed;
     grid-area: izquierda;
     justify-content: center;
@@ -83,7 +77,7 @@ ul {
         "seccion-informacion"
         "seccion-desarrolladores";
     text-align: center;
-    justify-items: center;  
+    justify-items: center;
 }
 
 /* Inicio sección información general */
@@ -91,21 +85,21 @@ ul {
 .informacion-general {
     display: grid;
     grid-area: seccion-informacion;
-    grid-template-areas: 
-    "titulo titulo"
-    "info1 info2";
+    grid-template-areas:
+        "titulo titulo"
+        "info1 info2";
     height: 100vh;
 }
 
-.informacion-titulo{
+.informacion-titulo {
     grid-area: titulo;
 }
 
-.informacion-1{
+.informacion-1 {
     grid-area: info1;
 }
 
-.informacion-2{
+.informacion-2 {
     grid-area: info2;
 }
 

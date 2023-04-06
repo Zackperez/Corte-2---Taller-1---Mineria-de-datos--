@@ -1,10 +1,5 @@
-@import url(normalice.css);
 @import url(global.css);
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;700&display=swap');
 
-ul {
-  list-style: none;
-}
 
 .principal {
   height: 100vh;

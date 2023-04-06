@@ -1,0 +1,143 @@
+@import url(global.css);
+
+.texto-amarillo {
+  color: rgb(255, 217, 0);
+}
+
+.principal {
+  height: 100vh;
+  display: grid;
+}
+
+.principal-contenido {
+  display: grid;
+  grid-template-areas: "izquierda derecha";
+  grid-template-columns: 8vw 90vw;
+}
+
+.contenido-izquierda {
+  display: flex;
+  margin: auto 0;
+  grid-area: izquierda;
+  justify-content: center;
+}
+
+/* MENU */
+.menu {
+  background-color: #131417;
+  height: 95vh;
+  border-radius: 0.5vw;
+  display: flex;
+  width: 5vw;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconos {
+  display: grid;
+}
+
+.icono-menu,
+.icono-menu-2,
+.icono-menu-3,
+.icono-menu-4 {
+  margin: 2vh auto;
+}
+
+.icono-menu-5 {
+  margin-top: 48vh;
+}
+
+.fa-solid {
+  color: white;
+}
+
+.fa-solid:hover {
+  color: #d5d3d7;
+}
+
+/* FIN MENU*/
+
+.contenido-derecha {
+  display: grid;
+  grid-area: derecha;
+  align-items: center;
+  background-color: #131417;
+  margin: auto 0;
+  height: 95vh;
+  border-radius: 0.5vw;
+}
+
+.derecha-grid {
+  display: grid;
+  margin: 0 auto;
+}
+
+/* Seccion inicio */
+
+.inicio-contenido {
+  display: grid;
+  grid-template-areas:
+    "titulo imagen"
+    "parrafo imagen"
+    "boton imagen";
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.inicio-titulo {
+  grid-area: titulo;
+}
+
+.inicio-parrafo {
+  grid-area: parrafo;
+}
+
+.inicio-imagen {
+  grid-area: imagen;
+}
+
+.inicio-boton {
+  grid-area: boton;
+  border-radius: 0.2vw;
+  cursor: pointer;
+  padding: 1vw 1vw;
+  background-color: #efe9f4;
+}
+
+.inicio__titulo {
+  font-size: 4vw;
+  color: aliceblue;
+}
+
+.inicio__subtitulo {
+  font-size: 1.9vw;
+  color: rgb(230, 230, 230);
+  font-weight: 300;
+}
+
+.inicio__parrafo strong {
+  color: white;
+}
+
+.inicio__parrafo {
+  font-size: 1.3vw;
+  color: rgb(182, 182, 182);
+  font-weight: 300;
+}
+
+.inicio__link {
+  color: black;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.inicio__imagen {
+  height: 30vh;
+  width: auto;
+}
+
+/* Seccion inicio FIN */
