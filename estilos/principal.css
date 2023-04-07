@@ -2,39 +2,46 @@
 	margin: 0;
 	padding: 0;
 	color:white;
-	font-family: 'Cabin', sans-serif;
 }
-body,html{
-	background-color: black;
 
+body{
+	background-color: #16161D;
+}
+
+.contenedor{
+	height: 70vh;
+	display: grid;
+    align-items: center;
 }
 
 h1{
 	text-transform: uppercase;
-	font-size: 50px;
-	color: #000000;
+	font-size: 8vh;
+}
+
+nav{
+	height: 10vh;
+}
+
+.ola{
+	height: 20vh;
+	width: 100%;
+	top:0;
 }
 
 /* HEADER */
 
-.navbar{
-	background-color: #16161D;
-}
-
 .navbar-brand{
 	color: white !important;
-	font-size: 30px;
+	font-size: 5vh;
 }
 
 .navbar li a{
 	color:white !important;
-	font-size: 30px;
+	font-size: 5vh;
 	float: right;
 }
 
-.navbar-nav li{
-	padding: 0 14px;
-}
 /* SECCION PRINCIPAL */ 
 
 .modal-h1{
@@ -48,73 +55,81 @@ h1{
 	font-size: 20px;
 }
 
-#principal{
-	height: 100%;
-	background-color: #16161D;
+.contenido{
+	display: grid;
+	grid-template-areas:
+	"imagen contenido";
+	grid-template-columns: 40vw 40vw;
+	justify-content: center;
 }
 
 .principal-imagen{
-	height: 60vh;
-	margin-top: 60px;
+	display: grid;
+	grid-area: imagen;
+	align-items: end;
+}
+
+.principal-contenido{
+	grid-area: contenido;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	justify-content: center;
+	grid-template-areas: 
+	"titulo"
+	"correo"
+	"contra"
+	"texto"
+	"boton";
+}
+
+.principal-titulo{
+	grid-area: titulo;
+}
+
+.principal-entrada-correo{
+	grid-area: correo;
+}
+
+.principal-entrada-contra{
+	grid-area: contra;
+}
+
+.principal-texto{
+	grid-area: texto;
+}
+
+.principal-boton{
+	grid-area: boton;
+}
+
+.principal-contenido input{
+	width: 40vw;
+}
+
+.principal-contenido button{
+	width: 20vw;
+}
+
+.principal__imagen{
+	height: 55vh;
 	width: auto;
 }
 
-.principal-h1{
+.principal__h1{
 	font-weight: bold;
-	margin-top: 80px;
 	color: #FFFF;
 }
 
-.principal-p{
-	font-size: 20px;
+.principal__texto{
+	font-size: 3vh;
 }
-
-.CorreoCSS{
-	color:red;
-	font-size: 16px;
-    /*text-align: left;*/
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-.ContraCSS{
-	color:red;
-	font-size: 16px;
-    /*text-align: left;*/
-	text-transform: uppercase;
-	font-weight: bold;
-}
-
-
-.js-h1{
-	color: #EA0101;
-	margin-top: 20px;
-	font-size: 20px;
-}
-
-.h1-veri{
-	color: #12E707;
-	font-size: 20px;
-}
-
-span{
+.principal__texto span{
 	color:lightblue;
 }
 
-input{
-	margin: 20px 0px;
-	
-}
-
-.btn-light{
-	font-size: 20px;
-}
-
-.ola{
-	height: 20vh;
-	width: 100%;
-	position:sticky;
-	top:0;
+.principal-boton .btn-light{
+	font-size: 3.3vh;
 }
 
 @media only screen and (max-width: 600px) {
@@ -133,8 +148,5 @@ input{
 		margin-right: 0px;
 	}
 
-	.ola{
-		height: 20vh;
-	}
 	
   }

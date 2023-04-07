@@ -146,8 +146,8 @@ function insertar_datos_vehiculo() {
 
 function modificar_datos_vehiculo() {
   const modificarId = document.getElementById('modificar-id').value;
-  const modificarModelo = document.getElementById('campo-modificar-modelo__combobox').value;
-  const modificarAño = document.getElementById('campo-modificar-year__combobox').value;
+  const modificarModelo = document.getElementById('modificarModelo').value;
+  const modificarAño = document.getElementById('modificarAño').value;
   const modificarPrecio = document.getElementById('modificar-precio').value;
   const modificarKilometraje = document.getElementById('modificar-kilometraje').value;
   let formato_precio = Intl.NumberFormat("de-DE");
@@ -194,6 +194,39 @@ function eliminar_datos_vehiculo() {
 
 }
 
+function buscar_datos_vehiculos(){
+  const idBuscar = document.getElementById('modificar-id').value;
+  let modificarModelo = document.getElementById('modificarModelo');
+  let modificarAño = document.getElementById('modificarAño');
+  let modificarPrecio = document.getElementById('modificar-precio');
+  let modificarKilometraje = document.getElementById('modificar-kilometraje');
+
+  axios.get('http://127.0.0.1:4000/mostrar_vehiculo/' + idBuscar)
+  .then(function (response) {
+
+  precioFormateado = response.data[0][1];
+
+  const valorSinDolar = precioFormateado.replace("$", "");
+  const precioFinal = Number(valorSinDolar.replace(/\./g, ""));
+
+  kmFormateado = response.data[0][4];
+
+  const valorSinKm = kmFormateado.replace("km", "")
+  const kmFinal = Number(valorSinKm.replace(/\./g, ""));
+
+    modificarAño.value = response.data[0][3];
+    modificarModelo.value = response.data[0][2];
+    modificarPrecio.value = precioFinal;
+    modificarKilometraje.value = kmFinal;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+}
+const btnBuscarModificarDatosModal = document.getElementById('btnBuscarModificarDatosModal')
+
+
 function consultar_datos_vehiculo() {
 
   const modalConsultarCampoId = document.getElementById('modalConsultarCampoId').value;
@@ -229,6 +262,10 @@ btnInsertarDatosModal.onclick = function () {
 
 btnModificarDatosModal.onclick = function () {
   modificar_datos_vehiculo();
+}
+
+btnBuscarModificarDatosModal.onclick = function () {
+  buscar_datos_vehiculos();
 }
 
 btnEliminarDatosModal.onclick = function () {

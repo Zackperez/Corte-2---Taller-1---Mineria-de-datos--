@@ -18,6 +18,9 @@ table {
 }
 
 th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #191919;
@@ -26,8 +29,9 @@ th {
 
 td {
   text-align: center;
-  padding: 20px;
+  padding: 2vw;
   border-bottom: 1px solid #f1f1f1;
+  font-size: 1.3vw;
 }
 
 .principal {
@@ -186,7 +190,6 @@ td {
   align-items: center;
   align-content: center;
 }
-
 
 /* The Close Button */
 .btn-cerrar-modal {

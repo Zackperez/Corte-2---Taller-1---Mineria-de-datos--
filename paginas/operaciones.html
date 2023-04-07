@@ -20,23 +20,23 @@
                 <nav class="menu">
                     <div class="iconos">
 
-                        <div class="icono-menu">
+                        <div class="icono icono-menu">
                             <a href="inicio.html"><i class="fa-solid fa-house fa-2x"></i></a>
                         </div>
 
-                        <div class="icono-menu-2">
+                        <div class="icono icono-menu-2">
                             <a href="operaciones.html"><i class="fa-solid fa-table fa-2x"></i></a>
                         </div>
 
-                        <div class="icono-menu-3">
+                        <div class="icono icono-menu-3">
                             <a href="graficas.html"><i class="fa-solid fa-chart-simple fa-2x"></i></a>
                         </div>
 
-                        <div class="icono-menu-4">
+                        <div class="icono icono-menu-4">
                             <a href="acercade.html"><i class="fa-solid fa-info fa-2x"></i></a> 
                         </div>
 
-                        <div class="icono-menu-5">
+                        <div class="icono icono-menu-5">
                             <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
                         </div>
                     </div>
@@ -193,6 +193,7 @@
                                     <div class="campo__texto">
                                         <input type="text" id="modificar-id" name="name" minlength="5" maxlength="15">
                                     </div>
+
                                 </div>
 
                                 <div class="campo">
@@ -200,14 +201,8 @@
                                         <label for="name">Modelo</label>
                                     </div>
                                     <div class="campo__texto">
-                                        <select id="campo-modificar-modelo__combobox" class="combobox">
-                                            <option>ALASKAN</option>
-                                            <option>KWIND</option>
-                                            <option>LOGAN</option>
-                                            <option>SANDERO</option>
-                                            <option>SOUL</option>
-                                            <option>STEPWAY</option>
-                                        </select>
+                                        <input type="text" id="modificarModelo" name="name" minlength="5" maxlength="15" disabled>
+
                                     </div>
                                 </div>
                                 <div class="campo">
@@ -215,17 +210,8 @@
                                         <label for="name">Año</label>
                                     </div>
                                     <div class="campo__texto">
-                                        <select id="campo-modificar-year__combobox" class="combobox">
-                                            <option>2015</option>
-                                            <option>2016</option>
-                                            <option>2017</option>
-                                            <option>2018</option>
-                                            <option>2019</option>
-                                            <option>2020</option>
-                                            <option>2021</option>
-                                            <option>2022</option>
-                                            <option>2023</option>
-                                        </select>
+                                        <input type="text" id="modificarAño" name="name" minlength="5" maxlength="15" disabled>
+
                                     </div>
                                 </div>
 
@@ -249,6 +235,7 @@
                             </div>
 
                             <div class="modal-pie">
+                                <button id="btnBuscarModificarDatosModal">Buscar</button>
                                 <button id="btnModificarDatosModal">Insertar</button>
                             </div>
                         </div>
@@ -335,7 +322,7 @@
 
                 </div>
             </div>
-            
+
         </section>
     </main>
 
