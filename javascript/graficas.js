@@ -20,17 +20,9 @@ fetch(endpoint)
         labels: labels,
         datasets: [
           {
-            label: 'Dataset 1',
-            data: Utils.numbers(NUMBER_CFG),
-            borderColor: Utils.CHART_COLORS.red,
-            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            label: 'Cantidad carros',
+            data: values
           },
-          {
-            label: 'Dataset 2',
-            data: Utils.numbers(NUMBER_CFG),
-            borderColor: Utils.CHART_COLORS.blue,
-            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-          }
         ]
       },
       options: {
@@ -49,139 +41,146 @@ fetch(endpoint)
     console.error(error);
   });
 
-  // GRAFICO 2 - Cantidad de carros publicados según su año
-const cant_carros_por_ano = "http://127.0.0.1:4000/cant_carros_por_ano";
 
-
-  fetch(cant_carros_por_ano)
+fetch('http://localhost:4000/mostrar_registros_tabla/')
   .then(response => response.json())
   .then(data => {
-
-    console.log(data)
-    // DATA A USAR
-    const labels = data.map(item => item.año); // X
-    const values = data.map(item => item.cantidad); //Y
-
-    // Cantidad de carros según el modelo
-
-    const ctx = document.getElementById('myChart2').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Cantidad',
-          backgroundColor: 'rgba(0, 99, 2, 0.2)',
-          borderColor: 'rgba(0, 99, 132, 1)',
-          borderWidth: 1,
-          data: values,
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            }
-          }]
-        }
-      }
+    const labels = [...new Set(data.map(v => v.año))];
+    const modelos = [...new Set(data.map(v => v.modelo))];
+    const datasets = modelos.map(modelo => {
+      const datosModelo = labels.map(año => {
+        const vehiculos = data.filter(v => v.modelo === modelo && v.año === año);
+        return vehiculos.length;
+      });
+      return {
+        label: modelo,
+        data: datosModelo,
+        backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`,
+        borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
+        borderWidth: 1
+      };
     });
-
-  })
-  .catch(error => {
-    console.error(error);
-  });
-
-  // GRAFICO 3 - PRECIO SEGÚN EL KILOMETRAJE
-
-  const precio_km = "http://127.0.0.1:4000/precio_segun_km";
-
-
-  fetch(precio_km)
-  .then(response => response.json())
-  .then(data => {
-
-    console.log(data)
-    // DATA A USAR
-    const values2 = data.map(item => item.precio); // X
-    const values = data.map(item => item.kilometraje); //Y
-    const labels = data.map(item => item.año); //Y
-
-
-
-    const datico = {
+    const datos = {
       labels: labels,
-      datasets: [
-        {
-          label: 'Dataset 1',
-          data: values
-        },
-        {
-          label: 'Dataset 2',
-          data: values2
-        }
-      ]
+      datasets: datasets
     };
+    crearGrafica(datos);
+  })
+  .catch(error => console.error(error));
 
-    // Cantidad de carros según el modelo
-
-    const ctx3 = document.getElementById('myChart3').getContext('2d');
-    const chart3 = new Chart(ctx3, {
-      type: 'line',
-      data: datico,
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            }
-          }]
+function crearGrafica(datos) {
+  const ctx = document.getElementById('myChart3').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: datos,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
         }
       }
-    });
-
-  })
-  .catch(error => {
-    console.error(error);
+    }
   });
+}
 
-   fetch(endpoint)
+
+
+// Conectar con la API y extraer los datos utilizando fetch
+fetch('http://localhost:4000/mostrar_registros_tabla/')
   .then(response => response.json())
   .then(data => {
-
     console.log(data)
-    // DATA A USAR
-    const labels = data.map(item => item.modelo); // X
-    const values = data.map(item => item.cantidad); //Y
+    const modelos = data.map(d => d.modelo);
+    const años = data.map(d => d.año);
+    const kilometrajes = data.map(d => d.kilometraje);
+    const precios = data.map(d => d.precio);
 
-    // Cantidad de carros según el modelo
-
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const chart = new Chart(ctx, {
-      type: 'bar',
+    // Crear la gráfica de dispersión
+    const ctx = document.getElementById('myChart4').getContext('2d');
+    const scatterChart = new Chart(ctx, {
+      type: 'scatter',
       data: {
-        labels: labels,
         datasets: [{
-          label: 'Cantidad',
-          backgroundColor: 'rgba(0, 99, 132, 0.2)',
-          borderColor: 'rgba(0, 99, 132, 1)',
-          borderWidth: 1,
-          data: values,
+          label: 'Precio vs Kilometraje',
+          data: data.map(d => ({ x: d.kilometraje, y: d.precio })),
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          pointBackgroundColor: años,
+          pointRadius: 5,
+          pointHoverRadius: 10
         }]
       },
       options: {
         scales: {
+          xAxes: [{
+            type: 'linear',
+            position: 'bottom',
+            scaleLabel: {
+              display: true,
+              labelString: 'Kilometraje'
+            }
+          }],
           yAxes: [{
-            ticks: {
-              beginAtZero: true,
+            type: 'linear',
+            scaleLabel: {
+              display: true,
+              labelString: 'Precio'
             }
           }]
+        },
+        legend: {
+          display: false
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return `Modelo: ${modelos[tooltipItem.index]} | Año: ${años[tooltipItem.index]} | Kilometraje: ${kilometrajes[tooltipItem.index]} | Precio: ${precios[tooltipItem.index]}`
+            }
+          }
         }
       }
     });
-
   })
-  .catch(error => {
-    console.error(error);
-  });
+  .catch(error => console.error(error));
+
+
+  fetch('http://localhost:4000/mostrar_registros_tabla/')
+  .then(response => response.json())
+  .then(data => {
+    // Obtener la cantidad de registros para cada modelo
+    const modelos = {};
+    data.forEach(d => {
+      modelos[d.modelo] = modelos[d.modelo] ? modelos[d.modelo] + 1 : 1;
+    });
+    
+    // Crear los arrays para los nombres y cantidades
+    const nombresModelos = Object.keys(modelos);
+    const cantidadesModelos = Object.values(modelos);
+
+    // Crear la gráfica de pastel
+    const ctx = document.getElementById('myChart5').getContext('2d');
+    const pieChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: nombresModelos,
+        datasets: [{
+          data: cantidadesModelos,
+          backgroundColor: [
+            '#ff6384',
+            '#36a2eb',
+            '#cc65fe',
+            '#ffce56',
+            '#4bc0c0',
+            '#9966ff',
+            '#ffcc99'
+          ]
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Distribución de modelos'
+        }
+      }
+    });
+  })
+  .catch(error => console.error(error));

@@ -186,7 +186,7 @@ function eliminar_datos_vehiculo() {
     alert("Asegurate que los campos no estén vacíos");
   } else {
 
-    axios.delete("http://127.0.0.1:4000/eliminar_vehiculo/" + eliminarId)
+    axios.delete("http://127.0.0.1:4000/eliminar_datos_vehiculo/" + eliminarId)
       .then(res =>
         console.log(res))
       .catch(err => console.log('Error:', err))
@@ -225,7 +225,6 @@ function buscar_datos_vehiculos(){
 
 }
 const btnBuscarModificarDatosModal = document.getElementById('btnBuscarModificarDatosModal')
-
 
 function consultar_datos_vehiculo() {
 
@@ -275,8 +274,3 @@ btnEliminarDatosModal.onclick = function () {
 btnConsultarDatosModal.onclick = function () {
   consultar_datos_vehiculo();
 }
-
-
-
-
-
