@@ -194,7 +194,7 @@ function eliminar_datos_vehiculo() {
 
 }
 
-function buscar_datos_vehiculos(){
+function buscar_datos_vehiculos() {
   const idBuscar = document.getElementById('modificar-id').value;
   let modificarModelo = document.getElementById('modificarModelo');
   let modificarAño = document.getElementById('modificarAño');
@@ -202,26 +202,26 @@ function buscar_datos_vehiculos(){
   let modificarKilometraje = document.getElementById('modificar-kilometraje');
 
   axios.get('http://127.0.0.1:4000/mostrar_vehiculo/' + idBuscar)
-  .then(function (response) {
+    .then(function (response) {
 
-  precioFormateado = response.data[0][1];
+      precioFormateado = response.data[0][1];
 
-  const valorSinDolar = precioFormateado.replace("$", "");
-  const precioFinal = Number(valorSinDolar.replace(/\./g, ""));
+      const valorSinDolar = precioFormateado.replace("$", "");
+      const precioFinal = Number(valorSinDolar.replace(/\./g, ""));
 
-  kmFormateado = response.data[0][4];
+      kmFormateado = response.data[0][4];
 
-  const valorSinKm = kmFormateado.replace("km", "")
-  const kmFinal = Number(valorSinKm.replace(/\./g, ""));
+      const valorSinKm = kmFormateado.replace("km", "")
+      const kmFinal = Number(valorSinKm.replace(/\./g, ""));
 
-    modificarAño.value = response.data[0][3];
-    modificarModelo.value = response.data[0][2];
-    modificarPrecio.value = precioFinal;
-    modificarKilometraje.value = kmFinal;
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
+      modificarAño.value = response.data[0][3];
+      modificarModelo.value = response.data[0][2];
+      modificarPrecio.value = precioFinal;
+      modificarKilometraje.value = kmFinal;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
 }
 const btnBuscarModificarDatosModal = document.getElementById('btnBuscarModificarDatosModal')
@@ -245,7 +245,9 @@ function consultar_datos_vehiculo() {
         <td>${response.data[0][4]}</td>
         <td>${response.data[0][1]}</td>
       `;
+        tbodyConsultar.innerHTML = ''; // Elimina filas existentes
         tbodyConsultar.appendChild(tr);
+
       })
       .catch(function (error) {
         console.log(error);
@@ -253,6 +255,8 @@ function consultar_datos_vehiculo() {
   }
 
 }
+
+
 
 /* Botones */
 btnInsertarDatosModal.onclick = function () {

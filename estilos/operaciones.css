@@ -112,6 +112,7 @@ td {
   display: flex;
   grid-area: botones;
   justify-content: end;
+  column-gap: 2vw;
 }
 
 .contenedor-tabla-principal {
@@ -128,7 +129,8 @@ td {
 
 /* Modal */
 .modal {
-  display: none; /* POr defecto no se muestran en pantalla hasta que se abran */
+  display: none;
+  /* POr defecto no se muestran en pantalla hasta que se abran */
   position: fixed;
   z-index: 1;
   left: 0;
@@ -139,15 +141,25 @@ td {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-consultar .modal-contenido {
-  height: 60vh;
+.modal-modificar .modal-contenido {
+  height: 80vh;
+}
+
+.modal-modificar .modal-cuerpo {
+  display: flex;
+  column-gap: 2vw;
+  margin-left: 5vw;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .modal-contenido {
   display: grid;
-  height: 70vh;
+  height: 75vh;
   background-color: #fefefe;
-  margin: 5% auto;
+  margin: 2% auto;
   padding: 20px;
   width: 50%;
   border-radius: 0.4vw;
@@ -172,8 +184,9 @@ td {
 }
 
 .modal__descripcion {
-  font-size: 2.5vh;
   color: #4e4e4e;
+  font-size: 1.2vw;
+  padding: 0 2vw;
 }
 
 .combobox {

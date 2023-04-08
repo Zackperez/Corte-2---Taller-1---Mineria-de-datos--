@@ -95,6 +95,27 @@ fetch('http://localhost:4000/mostrar_registros_tabla/')
     const kilometrajes = data.map(d => d.kilometraje);
     const precios = data.map(d => d.precio);
 
+    function obtenerKilometrajes(kilometrajes) {
+      return kilometrajes.map(km => {
+        var valorSinKm = km.replace("km", "");
+        var kmFinal = Number(valorSinKm.replace(/\./g, ""));
+        return kmFinal;
+      });
+    }
+
+    function obtenerPrecios(precios) {
+      return precios.map(p => {
+        const valorSinDolar = p.replace("$", "");
+        const precioFinal = Number(valorSinDolar.replace(/\./g, ""));
+        return precioFinal;
+      });
+    }
+
+    var p_nuevo = obtenerPrecios(precios) 
+
+    var km_nuevo = obtenerKilometrajes(kilometrajes) 
+
+
     // Crear la gráfica de dispersión
     const ctx = document.getElementById('myChart4').getContext('2d');
     const scatterChart = new Chart(ctx, {
@@ -102,7 +123,12 @@ fetch('http://localhost:4000/mostrar_registros_tabla/')
       data: {
         datasets: [{
           label: 'Precio vs Kilometraje',
-          data: data.map(d => ({ x: d.kilometraje, y: d.precio })),
+          data: km_nuevo.map(function (x, i) {
+            return {
+              x: x,
+              y: p_nuevo[i]
+            };
+          }),
           backgroundColor: 'rgba(54, 162, 235, 0.2)',
           pointBackgroundColor: años,
           pointRadius: 5,
@@ -133,7 +159,7 @@ fetch('http://localhost:4000/mostrar_registros_tabla/')
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
-              return `Modelo: ${modelos[tooltipItem.index]} | Año: ${años[tooltipItem.index]} | Kilometraje: ${kilometrajes[tooltipItem.index]} | Precio: ${precios[tooltipItem.index]}`
+              return `Modelo: ${modelos[tooltipItem.index]} | Año: ${años[tooltipItem.index]} | Kilometraje: ${km_nuevo[tooltipItem.index]} | Precio: ${precios[tooltipItem.index]}`
             }
           }
         }
