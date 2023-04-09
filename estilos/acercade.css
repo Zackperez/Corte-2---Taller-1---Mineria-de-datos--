@@ -1,7 +1,6 @@
 @import url(global.css);
 
 .principal {
-    height: 100vh;
     display: grid;
 }
 
@@ -42,7 +41,6 @@
 .icono-menu-2,
 .icono-menu-3,
 .icono-menu-4 {
-
     margin: 2vh auto;
 }
 
@@ -68,124 +66,98 @@
 .contenido-derecha {
     display: grid;
     grid-area: derecha;
+    grid-template-areas: 
+    "acercade"
+    "desarrolladores";
     border-radius: 0.5vw;
+    margin: 0 5vw;
 }
 
-.derecha-grid {
+.contenido-grid {
+    grid-area: acercade;
     display: grid;
     grid-template-areas:
-        "seccion-informacion"
-        "seccion-desarrolladores";
-    text-align: center;
-    justify-items: center;
+        "titulo imagen"
+        "parrafo imagen"
+        "manuale imagen";
+    align-items: center;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-/* Inicio sección información general */
-
-.informacion-general {
+.contenido-titulo {
     display: grid;
-    grid-area: seccion-informacion;
-    grid-template-areas:
-        "titulo titulo"
-        "info1 info2";
-    height: 100vh;
-}
-
-.informacion-titulo {
     grid-area: titulo;
 }
 
-.informacion-1 {
-    grid-area: info1;
+.contenido-descripcion {
+    grid-area: parrafo;
+    width: 50vw;
 }
 
-.informacion-2 {
-    grid-area: info2;
+.contenido-boton {
+    grid-area: manuale;
 }
 
-/* Fin sección información general */
-
-
-/* Inicio sección integrantes del grupo */
-.integrantes-grupo {
-    grid-area: seccion-desarrolladores;
-}
-
-.integrantes {
-    text-align: center;
-    display: grid;
-    grid-template-areas:
-        "titulo titulo"
-        "tarjeta1 tarjeta2"
-        "tarjeta3 tarjeta4";
-    width: 70vw;
-    margin: auto 0;
-
-}
-
-.integrantes-titulo {
-    grid-area: titulo;
-}
-
-.desarrollador1 {
-    grid-area: tarjeta1;
-}
-
-.desarrollador2 {
-    grid-area: tarjeta2;
-}
-
-.desarrollador3 {
-    grid-area: tarjeta3;
-}
-
-.desarrollador4 {
-    grid-area: tarjeta4;
-}
-
-.tarjeta {
-    padding: 1vw;
-    display: grid;
-    grid-template-areas:
-        "imagen titulo"
-        "descripcion descripcion";
-    justify-items: center;
-    grid-template-columns: 3vw 20vw;
-    grid-template-rows: 8vh;
-    align-items: center;
-    justify-content: center;
-    justify-items: start;
-    border: 1px solid black;
-    background-color: #131417;
-}
-
-.tarjeta-imagen {
-    display: grid;
-    align-items: center;
+.contenido-imagen {
     grid-area: imagen;
-    color: white;
+    display: grid;
+    justify-items: center;
 }
 
-.tarjeta-titulo {
-    grid-area: titulo;
+.contenido-integrantes {
+    grid-area: integrantes;
 }
 
-.tarjeta__titulo {
-    color: white;
+.contenido__titulo{
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.contenido__descripcion {
     font-size: 1.5vw;
-    font-weight: 400;
+    text-align: justify;
 }
 
-.tarjeta-descripcion {
-    grid-area: descripcion;
-    border: 1px solid black;
-    border-radius: 0.5vw;
-    padding: 0px 1vw;
-    background-color: aqua;
+.contenido__imagen{
+    height: 45vh;
+    width: auto;
 }
 
-.tarjeta__descripcion {
-    font-size: 0.8vw;
+.boton{
+    padding: 2vh 3vw;
+    background-color: #131417;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgb(199, 198, 198);
+    text-decoration: none;
+    font-weight: 300;
+    color: white;
+    font-size: 1.2vw;
 }
 
-/* Fin seccion integrantes del grupo */
+.boton:hover {
+    background-color: #ffffff;
+    text-decoration: none;
+    color: #131417;
+}
+/* Inicio sección integrantes del grupo */
+
+.contenido-integrantes{
+    grid-area: desarrolladores;
+}
+
+.tarjeta{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.integrantes__titulo{
+    font-size: 4vw;
+}
+
+.tarjeta__titulo{
+    font-size: 1.5vw;
+}
+

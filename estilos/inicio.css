@@ -95,14 +95,7 @@
   grid-area: imagen;
 }
 
-.inicio-boton {
-  grid-area: boton;
-  border-radius: 0.2vw;
-  cursor: pointer;
-  padding: 1vw 1vw;
-  width: 15vw;
-  background-color: #efe9f4;
-}
+
 
 .inicio__titulo {
   font-size: 4vw;
@@ -126,11 +119,18 @@
 }
 
 .inicio__link {
+  grid-area: boton;
+  border-radius: 0.2vw;
+  cursor: pointer;
+  padding: 1vw 1vw;
+  width: 15vw;
+  background-color: #efe9f4;
   color: black;
   letter-spacing: 2px;
   text-decoration: none;
   font-weight: 400;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .inicio__imagen {

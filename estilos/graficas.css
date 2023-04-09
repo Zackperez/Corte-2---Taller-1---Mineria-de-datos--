@@ -15,12 +15,14 @@
 .contenido-izquierda {
   display: flex;
   margin: auto 0;
+  margin-left: 10px;
+  margin-top: 7px;
+  position: fixed;
   grid-area: izquierda;
   justify-content: center;
 }
+
 /* MENU */
-
-
 .menu {
   background-color: #131417;
   height: 95vh;
@@ -41,29 +43,80 @@
 .icono-menu-4 {
 
   margin: 2vh auto;
-}   
+}
 
-.icono-menu-5{
+.icono-menu-5 {
   margin-top: 48vh;
 }
 
-
-.fa-solid {
+.iconos .fa-solid {
   cursor: pointer;
   color: white;
 }
 
-.fa-solid:hover {
+.iconos .fa-solid:hover {
   color: #d5d3d7;
 }
-
 /* FIN MENU*/
 
 .contenido-derecha {
-    display: grid;
-    grid-area: derecha;
-    align-items: center;
-    margin: auto 0;
-    height: 95vh;
-    border-radius: 0.5vw;
+  display: grid;
+  grid-area: derecha;
+  height: 95vh;
+  border-radius: 0.5vw;
+  row-gap: 2vw;
+}
+
+.tarjetas {
+  display: grid;
+  padding: 10px 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.tarjetas .tarjeta {
+  padding: 1.2vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 0.5vw;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+}
+
+.numero {
+  font-size: 2vw;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+.nombre-tarjeta {
+  color: #00000088;
+  font-weight: 600;
+  font-size: 1vw;
+}
+
+.icon-box i {
+  font-size: 3vw;
+  color: #030303
+}
+
+.chart {
+  padding: 1.5vw;
+  border-radius: 0.5vw;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+  width: 40vw;
+  height: 55vh;
+}
+
+.chart__titulo {
+  font-size: 1.8vw;
+}
+
+.graficas {
+  display: flex;
+  gap: 4vw;
+  flex-wrap: wrap;
+  justify-content: center;
 }
