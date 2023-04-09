@@ -102,7 +102,7 @@ td {
   grid-template-areas:
     "tabla"
     "botones";
-  grid-template-rows: 75vh 5vh;
+  grid-template-rows: 80vh 5vh;
   grid-template-columns: 90vw;
   row-gap: 3vh;
   margin: 0 auto;
@@ -235,22 +235,6 @@ input[type=text] {
 .modal-pie button {
   margin-right: 3.1vw;
 }
-
-/* MODAL CONSULTAR XD GRID
-.modal-consultar .modal-cuerpo .campo{
-  display: grid;
-  grid-template-areas: 
-  "campo_id"
-  "resultados";
-}
-
-.campo-id{
-  grid-area: campo_id;
-}
-
-.campo-resultados{
-  grid-area: resultados;
-}*/
 
 .tabla-resultados-datos-vehiculo {
   height: 20vh;
