@@ -26,45 +26,6 @@
 				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Registrarse</a>
-					</li>
-
-					<!-- Modal -->
-					<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<h1 class="modal-h1">Registrate</h1>
-									<p class="modal-p">Una vez registrado, espera la activación de tu cuenta.</p>
-									<input id="nombre" placeholder="Ingresa tu nombre" class="form-control">
-									<input id="apellido" placeholder="Ingresa tu apellido" class="form-control">
-									<input id="email" placeholder="Ingresa un email" class="form-control">
-									<input type="password" id="contrasena" placeholder="Contraseña"
-										class="form-control">
-									<div id="mensajeVerificacion">
-
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-									<!--Boton con función de registrar al usuario -->
-									<button onclick="registrar()" class="btn btn-primary">Registrarse</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</ul>
-			</div>
 		</nav>
 	</header>
 
@@ -81,7 +42,7 @@
 					</div>
 
 					<div class="principal-entrada-correo">
-						<input type="email" id="correo_iniciar_sesion" placeholder="correo electrónico"
+						<input type="email" id="correo_iniciar_sesion" placeholder="usuario"
 							class="form-control">
 
 					</div>
@@ -95,10 +56,6 @@
 
 					</div>
 					PROBLEMAS EN MODO RESPONSIVE-->
-					<div class="principal-texto">
-						<p class="principal__texto">¿No tienes una cuenta aún? <a href="#" data-toggle="modal"
-								data-target="#registerModal"><span>Registrate haciendo click aquí</span></a></p>
-					</div>
 
 					<div class="principal-boton">
 						<!--Boton con función de ingresar al usuario -->
