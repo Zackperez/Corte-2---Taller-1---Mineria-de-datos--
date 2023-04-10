@@ -57,6 +57,7 @@
 .iconos .fa-solid:hover {
   color: #d5d3d7;
 }
+
 /* FIN MENU*/
 
 .contenido-derecha {
@@ -102,16 +103,35 @@
   color: #030303
 }
 
+.charts {
+  display: flex;
+}
+
 .chart {
   padding: 1.5vw;
   border-radius: 0.5vw;
   box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
   width: 40vw;
-  height: 55vh;
+  height: 70vh;
+}
+
+.charti {
+  padding: 1.5vw;
+  border-radius: 0.5vw;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+  /*El de las tortas*/
+  width: 40vw;
+  height: 70vh;
+
 }
 
 .chart__titulo {
   font-size: 1.8vw;
+}
+
+.parrafo {
+  text-align: justify;
+  margin: 20px;
 }
 
 .graficas {
@@ -119,4 +139,162 @@
   gap: 4vw;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+/* RESPONSIVE*/
+@media only screen and (max-width: 600px) {
+
+  .contenido {
+    display: grid;
+    grid-template-areas:
+      "navegacion"
+      "contenido";
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .contenido-izquierda {
+    grid-area: navegacion;
+    position: static;
+    margin: 0;
+  }
+
+  .contenido-derecha {
+    display: grid;
+    grid-area: contenido;
+    grid-template-areas: 
+    "tarjetasxd"
+    "graficos";
+  }
+
+  .tarjetas{
+    grid-area: tarjetasxd;
+  }
+
+  .charts{
+    grid-area: graficos;
+  }
+
+
+  .menu {
+    background-color: #131417;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100vw;
+  }
+
+  .iconos {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icono-menu,
+  .icono-menu-2,
+  .icono-menu-3,
+  .icono-menu-4 {
+    margin: 0;
+    padding: 12px;
+
+  }
+
+  .icono-menu-5 {
+    margin-top: 0vh;
+    padding: 12px;
+  }
+
+  .tarjetas {
+    display: grid;
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4";
+    padding: 0;
+    grid-gap: 0;
+  }
+
+  .tarjeta1 {
+    grid-area: card1;
+  }
+
+  .tarjeta2 {
+    grid-area: card2;
+
+  }
+
+  .tarjeta3 {
+    grid-area: card3;
+
+  }
+
+  .tarjeta4 {
+    grid-area: card4;
+
+  }
+
+  .tarjeta {
+    display: grid;
+    grid-template-areas:
+      "contenido"
+      "icono";
+  }
+
+  .card-content {
+    grid-area: contenido;
+  }
+
+  .icon-box {
+    grid-area: icono;
+  }
+
+  .numero {
+    font-size: 10vw;
+  }
+
+  .icon-box {
+    font-size: 10vw;
+  }
+
+  .charts {
+    display: flex;
+  }
+  
+  .chart {
+    padding: 1.5vw;
+    border-radius: 0.5vw;
+    box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+    width: 80vw;
+    height: auto;
+  }
+  
+  .charti {
+    padding: 1.5vw;
+    border-radius: 0.5vw;
+    box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+    width: 80vw;
+    height: 70vh;
+  }
+  
+  .chart__titulo {
+    font-size: 1.8vw;
+  }
+  
+  .parrafo {
+    text-align: justify;
+    margin: 20px;
+  }
+  
+  .graficas {
+    display: flex;
+    gap: 4vw;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+
+
+
 }

@@ -12,18 +12,19 @@
 
 .principal-contenido {
   display: grid;
-  grid-template-areas: 
-  "izquierda" 
-  "derecha";
+  grid-template-areas:
+    "izquierda"
+    "derecha"
+    "footer";
   grid-template-rows: 10vh 70vh;
 }
 
 
-.contenido-izquierda{
+.contenido-izquierda {
   grid-area: izquierda;
 }
 
-.menu-principal__contenedor{
+.menu-principal__contenedor {
   display: grid;
   height: 10vh;
 
@@ -66,22 +67,22 @@
   background-color: #16161D;
   align-content: center;
   height: 100vh;
-
 }
 
-.derecha-grid{
+.derecha-grid {
   display: grid;
-  grid-template-areas: 
-  "contenido"
-  "footer";
+  grid-template-areas:
+    "contenido"
+    "footer";
   height: 100vh;
 }
 
-.pagina__inicio{
+.pagina__inicio {
   grid-area: contenido;
 }
 
-.footer{
+.footer {
+
   grid-area: footer;
 }
 
@@ -112,8 +113,6 @@
 .inicio-imagen {
   grid-area: imagen;
 }
-
-
 
 .inicio__titulo {
   font-size: 4vw;
@@ -159,33 +158,35 @@
 /* Seccion inicio FIN */
 
 
-.footer{
+.footer {
   grid-area: footer;
 }
 
-.footer-container{
+.footer-container {
   display: block;
   padding: 50px 30px;
   background-color: #1d1d1d;
 }
 
-.footer-content{
+.footer-content {
   max-width: 1070px;
   margin: 0 auto;
 }
 
-.footer-list{
+.footer-list {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 30px;
   border-bottom: 1px solid #4a4a4a;
 }
 
-.footer-referencia, .footer-siguenos, .footer-juegos{
+.footer-referencia,
+.footer-siguenos,
+.footer-juegos {
   margin-right: 80px;
 }
 
-.footer-title{
+.footer-title {
   margin-bottom: 40px;
   font-size: 11pt;
   font-weight: 700;
@@ -195,7 +196,7 @@
   letter-spacing: 0;
 }
 
-.footer-list__item{
+.footer-list__item {
   font-size: 10pt;
   display: inline-block;
   color: #aaaaaa;
@@ -205,26 +206,124 @@
   margin: 10px 0;
 }
 
-.footer-bottom{
+.footer-bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 60px;
 }
 
-.footer__riot-logo{
+.footer__riot-logo {
   display: block;
   width: 110px;
   height: 40px;
 }
 
-.footer-text{
+.footer-text {
   max-width: 600px;
 }
 
-.footer__copyright{
+.footer__copyright {
   display: inline-block;
   color: #aaaaaa;
   font-size: 11pt;
   line-height: 1.4;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .principal-contenido {
+    display: grid;
+    grid-template-areas:
+      "izquierda"
+      "derecha"
+      "footer";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  .contenido-izquierda {
+    grid-area: izquierda;
+  }
+
+  .contenido-derecha {
+    grid-area: derecha;
+  }
+
+  .footer{
+    grid-area: footer;
+  }
+
+  .menu-principal__contenedor {
+    display: grid;
+    height: 10vh;
+    width: 50vw;
+  }
+
+  .menu-principal__contenido {
+    display: flex;
+    justify-content: start;
+  }
+
+  .menu-principal__item {
+    padding: 0;
+  }
+
+  .menu-principal__item a {
+    padding: 0px 10px 5px 10px;
+  }
+
+  .contenido-derecha {
+    display: grid;
+    background-color: #16161D;
+    align-content: center;
+    height: 100vh;
+  }
+
+  .derecha-grid {
+    display: grid;
+    grid-template-areas:
+      "contenido";
+    padding: 5vw;
+  }
+
+  .inicio-contenido {
+    display: grid;
+    grid-template-areas:
+      "titulo"
+      "parrafo"
+      "imagen"
+      "boton";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 10vh;
+    padding: 0;
+  }
+
+
+  .inicio__titulo {
+    font-size: 13vw;
+  }
+
+  .inicio__subtitulo {
+    font-size: 6vw;
+
+  }
+
+  .inicio__parrafo {
+    font-size: 5vw;
+  }
+
+  .inicio__imagen {
+    height: 10vh;
+    width: auto;
+  }
+
+  
+  .inicio__link{
+    padding: 4vw 4vw;
+    font-size: 5vw;
+  }
+
+
 }
